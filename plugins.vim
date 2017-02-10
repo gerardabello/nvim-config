@@ -9,6 +9,8 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
 
+Plug 'neomake/neomake'
+
 call plug#end()
 
 
@@ -19,3 +21,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 ""vim-jsx
 let g:jsx_ext_required = 0
+
+""neomake
+let g:neomake_javascript_enabled_makers = ['standard']
+let g:neomake_jsx_enabled_makers = ['standard']
+autocmd! BufWritePost * Neomake
