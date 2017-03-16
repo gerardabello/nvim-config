@@ -3,9 +3,9 @@ colorscheme gruvbox
 set background=dark    " Setting dark mode
 
 let mapleader="\<SPACE>"
-:nnoremap <Leader>p :FZF<CR>
+nnoremap <Leader>p :FZF<CR>
+nnoremap <Leader>o :Buffers<CR>
 
+set relativenumber
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-
+noremap ; :
