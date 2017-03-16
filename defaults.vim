@@ -28,6 +28,7 @@ endif
 set nostartofline       " Do not jump to first character with page commands.
 
 
+let mapleader="\<SPACE>"
 
 """"""""""""""""""""""""
 
