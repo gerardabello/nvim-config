@@ -13,15 +13,16 @@ Plug 'w0ng/vim-hybrid'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn global add tern' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm global add tern' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 Plug 'neomake/neomake'
+
+Plug 'sbdchd/neoformat'
 
 Plug 'tpope/vim-surround'
 
@@ -62,3 +63,20 @@ let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 
+"vim-go autofmt
+let g:go_fmt_autosave = 0
+
+
+"NeoFormat
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
+
+let g:neoformat_javascript_prettier = {
+            \ 'exe': 'prettier-standard',
+            \ 'stdin': 1,
+            \ }
+
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_go = ['goimports']
