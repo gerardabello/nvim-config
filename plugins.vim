@@ -15,9 +15,10 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
+Plug 'fleischie/vim-styled-components'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm global add tern' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 Plug 'neomake/neomake'
@@ -73,10 +74,17 @@ augroup fmt
   autocmd BufWritePre * Neoformat
 augroup END
 
+
+let g:neoformat_run_all_formatters = 1
+let g:neoformat_only_msg_on_error = 1
+
 let g:neoformat_javascript_prettier = {
             \ 'exe': 'prettier-standard',
-            \ 'stdin': 1,
+            \ 'stdin': 1
             \ }
 
 let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_json = ['prettier']
+let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_go = ['goimports']
