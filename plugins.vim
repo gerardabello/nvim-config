@@ -1,31 +1,30 @@
 call plug#begin()
 
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " colors
-Plug 'whatyouhide/vim-gotham'
-Plug 'morhetz/gruvbox'
 Plug 'w0ng/vim-hybrid'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'sheerun/vim-polyglot'
-Plug 'fatih/vim-go'
 Plug 'fleischie/vim-styled-components'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 Plug 'neomake/neomake'
 
 Plug 'sbdchd/neoformat'
 
 Plug 'tpope/vim-surround'
+
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
@@ -53,6 +52,8 @@ inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 " Disable preview window on completetion
 set completeopt-=preview
+
+let g:deoplete#sources#ternjs#types = 1
 
 
 "vim-go syntax options
@@ -88,3 +89,8 @@ let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_go = ['goimports']
+
+" ACK
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
