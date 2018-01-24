@@ -13,6 +13,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'sheerun/vim-polyglot'
+Plug 'jparise/vim-graphql'
 Plug 'fleischie/vim-styled-components'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -84,7 +85,13 @@ let g:neoformat_javascript_prettier = {
             \ 'stdin': 1
             \ }
 
-let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_javascript_standard = {
+            \ 'exe': 'standard',
+            \ 'args': ['--stdin','--fix','2>', '/dev/null', '|', 'cat'],
+            \ 'stdin': 1
+            \ }
+
+let g:neoformat_enabled_javascript = ['standard']
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
