@@ -38,6 +38,6 @@ nnoremap <Leader>o :Buffers<CR>
 let g:jsx_ext_required = 0
 
 " ACK
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading'
 endif
