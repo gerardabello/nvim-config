@@ -1,8 +1,9 @@
-set termguicolors
-
-let g:airline_theme='hybrid'
+set t_Co=256
+set cursorline
 colorscheme hybrid
+let g:airline_theme='hybrid'
 set background=dark    " Setting dark mode
+set termguicolors
 
 
 "itallics
