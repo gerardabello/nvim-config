@@ -23,6 +23,8 @@ let g:ale_linters = {
 \}
 
 let g:ale_javascript_eslint_suppress_missing_config = 1
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
 
 let g:ale_fixers = {
 \   'javascript': ['prettier-standard', 'eslint'],
@@ -31,6 +33,7 @@ let g:ale_fixers = {
 " Set this setting in vimrc if you want to fix files automatically on save.
 " This is off by default.
 let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
 
 
 "" FZF
