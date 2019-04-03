@@ -27,7 +27,7 @@ let g:ale_javascript_eslint_suppress_missing_config = 1
 let g:ale_linters_explicit = 1
 
 let g:ale_fixers = {
-\   'javascript': ['prettier-standard', 'eslint'],
+\   'javascript': ['eslint'],
 \}
 
 " Set this setting in vimrc if you want to fix files automatically on save.
