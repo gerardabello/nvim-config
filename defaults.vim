@@ -9,6 +9,9 @@ set expandtab           " Insert spaces when TAB is pressed.
 set tabstop=2           " Render TABs using this many spaces.
 set shiftwidth=2        " Indentation amount for < and > commands.
 
+set lazyredraw          " no repaints during macros
+set undofile            " persist undo
+
 set noerrorbells        " No beeps.
 set modeline            " Enable modeline.
 set linespace=0         " Set line-spacing to minimum.
