@@ -9,7 +9,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'sheerun/vim-polyglot'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+"Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 Plug 'mileszs/ack.vim'
 
@@ -31,7 +31,7 @@ let g:ale_linters_explicit = 1
 let g:ale_rust_cargo_use_clippy = 1
 
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
+\   'javascript': ['prettier'],
 \   'rust': ['rustfmt'],
 \}
 
