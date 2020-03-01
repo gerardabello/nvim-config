@@ -20,8 +20,10 @@ Plug 'w0rp/ale'
 call plug#end()
 
 " ALE
+
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'javascriptreact': ['eslint'],
 \   'rust': ['cargo'],
 \}
 
@@ -31,7 +33,8 @@ let g:ale_linters_explicit = 1
 let g:ale_rust_cargo_use_clippy = 1
 
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
+\   'javascript': ['prettier', 'eslint'],
+\   'javascriptreact': ['prettier', 'eslint'],
 \   'rust': ['rustfmt'],
 \}
 
