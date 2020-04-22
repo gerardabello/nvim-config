@@ -34,6 +34,16 @@ let mapleader="\<SPACE>"
 
 """"""""""""""""""""""""
 
+set cursorline
+
+set relativenumber
+
+
+"itallics
+highlight Comment gui=italic
+highlight Comment cterm=italic
+highlight Type cterm=italic
+highlight Type gui=italic
 
 
 " Tell Vim which characters to show for expanded TABs,
