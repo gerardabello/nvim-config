@@ -17,6 +17,8 @@ colorscheme spacegray
 
 noremap ; :
 
+nnoremap <Leader><Leader> :b#<CR>
+
 " Split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
