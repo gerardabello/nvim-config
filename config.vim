@@ -29,6 +29,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader>p :FZF<CR>
 nnoremap <Leader>o :Buffers<CR>
 nnoremap <Leader>f :ALEFix<CR>
+nnoremap <Leader>g :Goyo<CR>
 
 
 " ALE
@@ -59,3 +60,8 @@ let g:ale_fix_on_save = 0
 let g:ale_lint_on_save = 1
 
 let g:ale_rust_cargo_check_all_targets = 1
+
+
+
+let g:goyo_width = '120'
+let g:goyo_height = '95%'

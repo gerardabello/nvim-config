@@ -2,6 +2,8 @@ call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
 
+Plug 'junegunn/goyo.vim'
+
 " colors
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'jacoborus/tender.vim'
