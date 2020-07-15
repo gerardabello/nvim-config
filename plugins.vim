@@ -5,9 +5,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
 
 " colors
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'jacoborus/tender.vim'
-Plug 'ayu-theme/ayu-vim'
 Plug 'ajh17/Spacegray.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }

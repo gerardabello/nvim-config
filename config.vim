@@ -2,16 +2,6 @@ set termguicolors
 
 set background=dark    " Setting dark mode
 
-"let g:deepspace_italics=1
-"colorscheme deep-space
-
-"colorscheme tender
-
-"let ayucolor="light"  " for light version of theme
-"let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
-
 let g:spacegray_use_italics = 1
 colorscheme spacegray
 
