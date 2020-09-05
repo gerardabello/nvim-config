@@ -29,6 +29,7 @@ let g:ale_linters = {
 \   'typescript': ['tsserver', 'eslint'],
 \   'typescriptreact': ['tsserver', 'eslint'],
 \   'rust': ['cargo'],
+\   'go': ['gobuild', 'golangci_lint'],
 \}
 
 let g:ale_javascript_eslint_suppress_missing_config = 1
@@ -42,6 +43,7 @@ let g:ale_fixers = {
 \   'typescript': ['prettier', 'eslint'],
 \   'typescriptreact': ['prettier', 'eslint'],
 \   'rust': ['rustfmt'],
+\   'go': ['goimports'],
 \}
 
 " Set this setting in vimrc if you want to fix files automatically on save.
