@@ -19,6 +19,8 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'w0rp/ale'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 "" vim-jsx
