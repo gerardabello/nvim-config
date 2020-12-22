@@ -1,7 +1,0 @@
-{
-  "coc.preferences.diagnostic.displayByAle": true,
-  "rust-analyzer.inlayHints.enable": false,
-  "rust-analyzer.inlayHints.typeHints": false,
-  "rust-analyzer.inlayHints.chainingHints": false,
-  "workspace.progressTarget": "statusline"
-}

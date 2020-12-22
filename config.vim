@@ -1,3 +1,5 @@
+let mapleader="\<SPACE>"
+
 set termguicolors
 
 set background=dark    " Setting dark mode
@@ -9,44 +11,78 @@ noremap ; :
 
 nnoremap <Leader><Leader> :b#<CR>
 
-" Split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <silent> <Leader>. :vertical resize +5<CR>
+nnoremap <silent> <Leader>, :vertical resize -5<CR>
 
-" status line
 
-set laststatus=2
-
-set statusline=
-set statusline+=\ %f
-set statusline+=%m
-set statusline+=\ \ 
-set statusline+=%{coc#status()}
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %l:%c
-set statusline+=\ %p%%
-set statusline+=\ 
-
+" Force typescript
+autocmd BufNewFile,BufRead *.js set syntax=typescriptreact
+autocmd BufNewFile,BufRead *.jsx set syntax=typescriptreact
+autocmd BufNewFile,BufRead *.tsx set syntax=typescriptreact
+autocmd BufNewFile,BufRead *.ts set syntax=typescriptreact
 
 "" FZF
 nnoremap <Leader>p :FZF<CR>
 nnoremap <Leader>o :Buffers<CR>
-nnoremap <Leader>f :ALEFix<CR>
-nnoremap <Leader>g :Goyo<CR>
 
+
+" LSP
+
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+lua << EOF
+  require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
+  require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
+  require'lspconfig'.rust_analyzer.setup{
+    on_attach=require'completion'.on_attach,
+    settings={
+      ["rust-analyzer"] = {
+        checkOnSave={
+          command="clippy"
+        }
+      }
+    }
+  }
+EOF
+
+lua << EOF
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    -- This will disable virtual text, like doing:
+    -- let g:diagnostic_enable_virtual_text = 0
+    virtual_text = true,
+
+    -- This is similar to:
+    -- let g:diagnostic_show_sign = 1
+    -- To configure sign display,
+    --  see: ":help vim.lsp.diagnostic.set_signs()"
+    signs = true,
+
+    -- This is similar to:
+    -- "let g:diagnostic_insert_delay = 1"
+    update_in_insert = false,
+  }
+)
+EOF
+
+nnoremap <silent> KK :lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> KD :lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gr :lua vim.lsp.buf.references()<CR>
+
+command! Rename :lua vim.lsp.buf.rename()
 
 " ALE
+
+nnoremap <Leader>f :ALEFix<CR>
+
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'javascriptreact': ['eslint'],
-\   'typescript': ['tsserver', 'eslint'],
-\   'typescriptreact': ['tsserver', 'eslint'],
-\   'rust': ['cargo'],
-\   'go': ['gobuild', 'custom_golangci_lint'],
+\   'typescript': ['eslint'],
+\   'typescriptreact': ['eslint'],
+\   'go': ['custom_golangci_lint'],
 \}
 
 let g:ale_disable_lsp = 1
@@ -70,59 +106,3 @@ let g:ale_fix_on_save = 0
 let g:ale_lint_on_save = 1
 
 let g:ale_rust_cargo_check_all_targets = 1
-
-
-
-let g:goyo_width = '120'
-let g:goyo_height = '95%'
-
-
-
-" ##### COC
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)

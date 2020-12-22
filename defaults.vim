@@ -30,12 +30,9 @@ endif
 set nostartofline       " Do not jump to first character with page commands.
 
 
-let mapleader="\<SPACE>"
 
 """"""""""""""""""""""""
-
 set cursorline
-
 set relativenumber
 
 
@@ -44,7 +41,6 @@ highlight Comment gui=italic
 highlight Comment cterm=italic
 highlight Type cterm=italic
 highlight Type gui=italic
-
 
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
@@ -57,4 +53,8 @@ set list                " Show problematic characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\|\t/
 
-
+" Split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
