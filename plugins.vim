@@ -3,7 +3,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 
 " colors
-Plug 'ajh17/Spacegray.vim'
+Plug 'ackyshake/Spacegray.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
