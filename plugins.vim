@@ -2,6 +2,8 @@ call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
 
+Plug 'tpope/vim-fugitive'
+
 " colors
 Plug 'ackyshake/Spacegray.vim'
 

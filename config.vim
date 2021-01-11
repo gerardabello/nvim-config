@@ -21,7 +21,11 @@ autocmd BufNewFile,BufRead *.jsx set syntax=typescriptreact
 autocmd BufNewFile,BufRead *.tsx set syntax=typescriptreact
 autocmd BufNewFile,BufRead *.ts set syntax=typescriptreact
 
-"" FZF
+" VIMDIFF
+nnoremap <silent> <Leader>dl :diffget LOCAL<CR>
+nnoremap <silent> <Leader>dr :diffget REMOTE<CR>
+
+" FZF
 nnoremap <Leader>p :FZF<CR>
 nnoremap <Leader>o :Buffers<CR>
 
