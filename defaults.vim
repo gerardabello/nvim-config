@@ -28,6 +28,7 @@ if !&sidescrolloff
   set sidescrolloff=5   " Show next 5 columns while side-scrolling.
 endif
 set nostartofline       " Do not jump to first character with page commands.
+set mouse=a             " Enable mouse selection
 
 
 

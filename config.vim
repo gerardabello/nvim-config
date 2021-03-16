@@ -22,8 +22,20 @@ autocmd BufNewFile,BufRead *.tsx set syntax=typescriptreact
 autocmd BufNewFile,BufRead *.ts set syntax=typescriptreact
 
 " VIMDIFF
-nnoremap <silent> <Leader>dl :diffget LOCAL<CR>
-nnoremap <silent> <Leader>dr :diffget REMOTE<CR>
+nnoremap <silent> <Leader>dgl :diffget LOCAL<CR>
+nnoremap <silent> <Leader>dgr :diffget REMOTE<CR>
+
+"Diff local and base
+nnoremap <silent> <Leader>dbl :diffo!<CR>:1windo difft<CR>:2windo difft<CR>
+"Diff remote and base
+nnoremap <silent> <Leader>dbr :diffo!<CR>:3windo difft<CR>:2windo difft<CR>
+
+"Diff local and merged
+nnoremap <silent> <Leader>dml :diffo!<CR>:1windo difft<CR>:4windo difft<CR>
+"Diff remote and merged
+nnoremap <silent> <Leader>dmr :diffo!<CR>:3windo difft<CR>:4windo difft<CR>
+
+set diffopt="internal,filler,closeoff,iwhiteall,iwhite"
 
 " FZF
 nnoremap <Leader>p :FZF<CR>
