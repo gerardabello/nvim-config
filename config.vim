@@ -49,6 +49,7 @@ set diffopt="internal,filler,closeoff,iwhiteall,iwhite"
 " FZF
 nnoremap <Leader>p :FZF<CR>
 nnoremap <Leader>o :Buffers<CR>
+let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.6 } }
 
 
 " LSP
