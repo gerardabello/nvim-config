@@ -15,6 +15,15 @@ nnoremap <silent> <Leader>. :vertical resize +5<CR>
 nnoremap <silent> <Leader>, :vertical resize -5<CR>
 
 
+set foldmethod=syntax
+
+" Open all fold by default
+set foldlevelstart=20
+" This is an alternative way to do it, as setting the level to 20 makes using zm zr difficult. See https://vim.fandom.com/wiki/All_folds_open_when_opening_a_file
+" The problem with it is that for new files, it sets the fold level to 0, and pasted code gets closed. As I don't use zm/zr I prefer to set to to 20 and ignore it.
+" autocmd Syntax * normal zR
+
+
 " Force typescript
 autocmd BufNewFile,BufRead *.js set syntax=typescriptreact
 autocmd BufNewFile,BufRead *.jsx set syntax=typescriptreact
