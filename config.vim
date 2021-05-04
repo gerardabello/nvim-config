@@ -51,24 +51,6 @@ nnoremap <Leader>p :FZF<CR>
 nnoremap <Leader>o :Buffers<CR>
 let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.6 } }
 
-
-" GOYO
-function! s:goyo_enter()
-  set number
-  set relativenumber
-endfunction
-
-function! s:goyo_leave()
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-let g:goyo_width = 120
-let g:goyo_height = '85%'
-nnoremap <silent> <Leader>g :Goyo<CR>
-autocmd VimEnter * :Goyo
-
 " LSP
 
 set completeopt=menuone,noinsert,noselect

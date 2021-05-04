@@ -4,8 +4,6 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'tpope/vim-fugitive'
 
-Plug 'junegunn/goyo.vim'
-
 " colors
 Plug 'ackyshake/Spacegray.vim'
 
