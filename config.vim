@@ -11,10 +11,6 @@ noremap ; :
 
 nnoremap <Leader><Leader> :b#<CR>
 
-nnoremap <silent> <Leader>. :vertical resize +5<CR>
-nnoremap <silent> <Leader>, :vertical resize -5<CR>
-
-
 set foldmethod=syntax
 
 " Open all fold by default
@@ -46,10 +42,13 @@ nnoremap <silent> <Leader>dmr :diffo!<CR>:3windo difft<CR>:4windo difft<CR>
 
 set diffopt="internal,filler,closeoff,iwhiteall,iwhite"
 
-" FZF
-nnoremap <Leader>p :FZF<CR>
-nnoremap <Leader>o :Buffers<CR>
-let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.6 } }
+
+" Telescope
+" Find files using Telescope command-line sugar.
+nnoremap <leader>p <cmd>Telescope find_files<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " LSP
 
@@ -131,3 +130,4 @@ let g:ale_fix_on_save = 0
 let g:ale_lint_on_save = 1
 
 let g:ale_rust_cargo_check_all_targets = 1
+

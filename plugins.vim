@@ -1,4 +1,8 @@
 call plug#begin()
+" telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'airblade/vim-gitgutter'
 
@@ -7,12 +11,7 @@ Plug 'tpope/vim-fugitive'
 " colors
 Plug 'ackyshake/Spacegray.vim'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-
 "Plug 'sheerun/vim-polyglot'
-
-Plug 'mileszs/ack.vim'
 
 Plug 'w0rp/ale'
 
@@ -23,10 +22,3 @@ call plug#end()
 
 "" vim-jsx
 let g:jsx_ext_required = 0
-
-" ACK
-if executable('rg')
-  let g:ackprg = 'rg --vimgrep --no-heading'
-endif
-
-
