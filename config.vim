@@ -131,3 +131,13 @@ let g:ale_lint_on_save = 1
 
 let g:ale_rust_cargo_check_all_targets = 1
 
+
+" TreeSitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,
+  },
+}
+EOF
